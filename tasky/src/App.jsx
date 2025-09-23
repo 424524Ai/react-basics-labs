@@ -1,6 +1,8 @@
 import './App.css';
 import Task from './components/Task';
 import React, {useState} from 'react';
+import AddTaskForm from './components/Form';
+
 // 项目的根组件
 // 流程
 // App   -->    main.jsx     -->     public/index.html(div id = "root") 
@@ -50,6 +52,7 @@ function App() {
       deleteTask = {() => deleteHandler(index)}
       /> 
       ))} 
+      <AddTaskForm />
     </div>
   );
 }
