@@ -24,7 +24,15 @@ function App() {
     // 3️⃣ 更新状态
     setTaskState({tasks});
     // 4️⃣ 输出调试信息
-    console.log(`${taskIndex} ${tasks[taskIndex].done}`);
+    //console.log(`${taskIndex} ${tasks[taskIndex].done}`);
+  }
+
+  const deleteHandler = (taskIndex) => {
+    const tasks = [...taskState.tasks];
+    // tasks.splice(task index = 从什么索引开始删 1 = 要删除的元素个数)
+    tasks.splice(taskIndex, 1);
+     // 更新状态
+    setTaskState({tasks});
   }
 
   // 渲染给用户看的信息
@@ -38,7 +46,9 @@ function App() {
       priority = {task.priority} 
       key = {task.id} 
       done={task.done}
-      markDone={() => doneHandler(index)}/> 
+      markDone={() => doneHandler(index)}
+      deleteTask = {() => deleteHandler(index)}
+      /> 
       ))} 
     </div>
   );
